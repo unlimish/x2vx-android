@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(this, "Invalid URL", Toast.LENGTH_SHORT).show()
                     }
+                    finish()
                 }
             }
         }
