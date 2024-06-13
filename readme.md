@@ -14,26 +14,5 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
     alt="Download on the Shortcuts"
     height="80">](https://www.icloud.com/shortcuts/fadff2730bd34ccba6f4d4b0c3761824)
 
-## Diagram
-
-```mermaid
-graph LR
-    A[MainActivity.onCreate] --> B[handleIntent]
-    A --> C[setContentView]
-    B --> D{Intent Action}
-    
-
-    F[Replace Domain]
-    F --> G[Copy to Clipboard]
-    G --> H[Show Toast]
-    H --> I[Finish Activity]
-    
-    D -->|ACTION_SEND| J[Extract URL from Intent EXTRA_TEXT]
-    J --> K{URL contains https://x.com?}
-    K -->|Yes| F[Replace Domain]
-    K -->|No| L[Show Invalid URL Toast]
-    F --> G[Copy to Clipboard]
-    G --> H[Show Toast]
-    H --> I
-    L --> I
-```
+## flow
+![untitled](https://github.com/unlimish/x2vx-android/assets/14168376/cf17c79e-14f1-4895-a4a1-8f7ef933ca89)
