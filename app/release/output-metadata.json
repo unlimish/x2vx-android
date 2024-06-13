@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
-      "versionName": "1.0.1",
-      "outputFile": "app-release.apk"
+      "versionCode": 2,
+      "versionName": "1.0.2",
+      "outputFile": "sh.unlimi.x2vx_1.0.2(2)_release.apk"
     }
   ],
   "elementType": "File",
@@ -22,14 +22,14 @@
       "minApi": 28,
       "maxApi": 30,
       "baselineProfiles": [
-        "baselineProfiles/1/app-release.dm"
+        "baselineProfiles/1/sh.unlimi.x2vx_1.0.2(2)_release.dm"
       ]
     },
     {
       "minApi": 31,
       "maxApi": 2147483647,
       "baselineProfiles": [
-        "baselineProfiles/0/app-release.dm"
+        "baselineProfiles/0/sh.unlimi.x2vx_1.0.2(2)_release.dm"
       ]
     }
   ],
