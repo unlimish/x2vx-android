@@ -1,4 +1,4 @@
-# x2vx for Android
+# x2vx for Android 
 Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy to clipboard without tracking links.
 
 ![x2vx-android](https://github.com/unlimish/x2vx-android/assets/14168376/43e35eaa-3657-41a2-9499-0ada2e9b633e)
@@ -9,7 +9,9 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
 [<img src="https://github.com/unlimish/x2vx-android/assets/14168376/c4f11a6e-730b-4c4d-b676-a11a1ed42831"
     alt="Get it on GitHub"
     height="80">](https://github.com/unlimish/x2vx-android/releases/) 
-
+    
+![GitHub Release](https://img.shields.io/github/v/release/unlimish/x2vx-android?style=for-the-badge)
+![MIT](https://img.shields.io/github/license/unlimish/x2vx-android.svg?style=for-the-badge)
 ## for iOS
 
 
