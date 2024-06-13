@@ -1,0 +1,42 @@
+<strong>x2vx</strong> is an Android app designed to modify URLs from `https://x.com` to `https://vxtwitter.com` and copy them directly to your clipboard.
+
+<strong><font color="#339933">[Feature]</font></strong>
+
+* Automatically replace `https://x.com` with `https://vxtwitter.com` in shared URLs.
+* Seamless clipboard integration for quick URL pasting.
+* Handles URLs shared from other apps using the Android share functionality.
+* User-friendly with toast notifications to indicate success or invalid URL.
+* Lightweight and fast, designed to operate without unnecessary background processes.
+
+<strong><font color="#339933">[Objective]</font></strong>
+
+* Simplify the process of modifying and sharing URLs.
+* Provide a quick and efficient tool for users who frequently share links.
+* Enhance user experience by automating the URL modification and copying process.
+
+<strong><font color="#339933">[Note]</font></strong>
+
+* The app is focused on URL modification and clipboard integration.
+* It does not offer additional file management or storage functions.
+* To function properly, the shared URLs must contain `https://x.com`.
+
+<strong><font color="#339933">[How to use]</font></strong>
+
+1. Share URL: Share any URL containing `https://x.com` from any app using the Android share feature.
+2. Automatic Processing: x2vx will automatically replace the domain with `https://vxtwitter.com`.
+3. Copy to Clipboard: The modified URL is copied to your clipboard and a toast notification is displayed.
+4. Ready to Share: Simply paste the modified URL wherever you need it.
+
+<strong><font color="#339933">[Source]</font></strong>
+
+GitHub
+https://github.com/unlimish/x2vx-android
+
+<strong><font color="#339933">[Issue]</font></strong>
+
+GitHub Issue
+https://github.com/unlimish/x2vx-android/issues
+
+Please post here if you have bug reports, feature requests, or other information.
+
+Thank you for using x2vx! We are committed to providing you with the best possible experience. If you have any questions or feedback, feel free to reach out.
