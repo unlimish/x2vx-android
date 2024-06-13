@@ -5,7 +5,8 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
 
  [<img src="https://raw.githubusercontent.com/enricocid/fdroid-custom-badges/main/badge_get-it-on-coming-soon.png"
     alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/packages/sh.unlimi.x2vx/)  [<img src="hhttps://github.com/unlimish/x2vx-android/assets/14168376/c4f11a6e-730b-4c4d-b676-a11a1ed42831"
+    height="80">](https://f-droid.org/packages/sh.unlimi.x2vx/)
+[<img src="https://github.com/unlimish/x2vx-android/assets/14168376/c4f11a6e-730b-4c4d-b676-a11a1ed42831"
     alt="Get it on GitHub"
     height="80">](https://github.com/unlimish/x2vx-android/releases/) 
 
