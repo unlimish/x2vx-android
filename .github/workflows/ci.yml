@@ -14,4 +14,47 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-- run: ./gradlew assemble
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - run: ./gradlew assemble
+      - uses: actions/upload-artifact@v3
+        with:
+          path: '**/*.apk'
+      - uses: yumemi-inc/comment-pull-request@v1
+        if: cancelled() != true
+        with:
+          comment: 'CI passed.'
+          comment-if-failure: 'CI failed.'
+
+  release:
+    needs: check
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - run: ./gradlew assemble
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload APK to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: '**/*.apk'
+          asset_name: '*.apk'
+          asset_content_type: application/vnd.android.package-archive
