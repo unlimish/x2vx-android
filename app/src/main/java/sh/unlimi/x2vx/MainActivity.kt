@@ -33,16 +33,6 @@ class MainActivity : AppCompatActivity() {
     private fun handleIntent(intent: Intent) {
         Log.d(TAG, "handleIntent called with action: ${intent.action}")
         when (intent.action) {
-            Intent.ACTION_VIEW -> {
-                val data: Uri? = intent.data
-                Log.d(TAG, "Received ACTION_VIEW with data: $data")
-                data?.let {
-                    val urlString = it.toString()
-                    val modifiedUrl = replaceDomain(urlString)
-                    copyToClipboard(modifiedUrl)
-                    Toast.makeText(this, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
-                }
-            }
             Intent.ACTION_SEND -> {
                 val urlString = intent.getStringExtra(Intent.EXTRA_TEXT)
                 Log.d(TAG, "Received ACTION_SEND with text: $urlString")
