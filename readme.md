@@ -5,5 +5,5 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
 
 
 ## for iOS
-[![dot_shortcutsw300](https://github.com/unlimish/x2vx-android/assets/14168376/67f7b8b4-182c-44a5-81d5-3a84e129279e)
+[![dot_shortcuts](https://github.com/unlimish/x2vx-android/assets/14168376/1c25e10c-40c2-49ed-aeab-7de221d416a0)
 ](https://www.icloud.com/shortcuts/fadff2730bd34ccba6f4d4b0c3761824)
