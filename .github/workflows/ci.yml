@@ -14,8 +14,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
       - run: ./gradlew assemble
       - uses: actions/upload-artifact@v4
         with:
@@ -36,8 +34,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
       - run: ./gradlew assemble
       - name: Create Release
         id: create_release
