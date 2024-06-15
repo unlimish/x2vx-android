@@ -5,6 +5,8 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
 
 ## Available on
 
+> ⚠️ While you can download the APKs GitHub directly, you should preferably use an F-Droid client or some kind of stores so the app stays up-to-date on your device.
+
  [<img src="https://raw.githubusercontent.com/enricocid/fdroid-custom-badges/main/badge_get-it-on-coming-soon.png"
     alt="Get it on F-Droid"
     height="80">](https://gitlab.com/fdroid/rfp/-/issues/2784)
