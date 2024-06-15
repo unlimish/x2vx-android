@@ -3,6 +3,8 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
 
 ![x2vx-android](https://github.com/unlimish/x2vx-android/assets/14168376/43e35eaa-3657-41a2-9499-0ada2e9b633e)
 
+## Available on
+
  [<img src="https://raw.githubusercontent.com/enricocid/fdroid-custom-badges/main/badge_get-it-on-coming-soon.png"
     alt="Get it on F-Droid"
     height="80">](https://gitlab.com/fdroid/rfp/-/issues/2784)
@@ -10,8 +12,12 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
     alt="Get it on GitHub"
     height="80">](https://github.com/unlimish/x2vx-android/releases/) 
     
+- [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx) `https://apt.izzysoft.de/fdroid/repo`
+
+
 ![GitHub Release](https://img.shields.io/github/v/release/unlimish/x2vx-android?style=for-the-badge)
 ![MIT](https://img.shields.io/github/license/unlimish/x2vx-android.svg?style=for-the-badge)
+
 ## for iOS
 
 
