@@ -5,7 +5,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, "Received ACTION_SEND with text: $urlString")
                 urlString?.let {
                     if (it.contains("https://x.com")) {
-                        val modifiedUrl = replaceDomain(it)
+                        val modifiedUrl = UrlReplacer().replaceDomainName(it)
                         copyToClipboard(modifiedUrl)
                         Toast.makeText(this, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
                     } else {
@@ -48,20 +47,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun replaceDomain(url: String): String {
-        var modifiedUrl = url
-        if (url.startsWith("https://x.com")) {
-            modifiedUrl = url.replaceFirst("https://x.com", "https://vxtwitter.com")
-        }
-
-        // Remove everything from "?" onwards
-        val indexOfQuery = modifiedUrl.indexOf("?")
-        if (indexOfQuery != -1) {
-            modifiedUrl = modifiedUrl.substring(0, indexOfQuery)
-        }
-        return modifiedUrl
     }
 
     private fun copyToClipboard(text: String) {
