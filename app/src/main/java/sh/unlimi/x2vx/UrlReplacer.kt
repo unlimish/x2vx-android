@@ -3,12 +3,12 @@ package sh.unlimi.x2vx
 import java.net.URI
 
 class UrlReplacer {
-    fun replaceDomainName(url: String): String {
-        return this.replaceDomainName(URI(url)).toString()
+    fun supports(url: URI): Boolean {
+        return url.host == "x.com"
     }
 
     fun replaceDomainName(url: URI): URI {
-        if (url.host != "x.com") {
+        if (!supports(url)) {
             return url
         }
 

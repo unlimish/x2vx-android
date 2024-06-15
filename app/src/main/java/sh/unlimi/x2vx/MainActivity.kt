@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.net.URI
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,16 +36,19 @@ class MainActivity : AppCompatActivity() {
             Intent.ACTION_SEND -> {
                 val urlString = intent.getStringExtra(Intent.EXTRA_TEXT)
                 Log.d(TAG, "Received ACTION_SEND with text: $urlString")
-                urlString?.let {
-                    if (it.contains("https://x.com")) {
-                        val modifiedUrl = UrlReplacer().replaceDomainName(it)
-                        copyToClipboard(modifiedUrl)
-                        Toast.makeText(this, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Invalid URL", Toast.LENGTH_SHORT).show()
+                urlString
+                    ?.let { URI(it) }
+                    ?.let {
+                        val replacer = UrlReplacer()
+                        if (replacer.supports(it)) {
+                            val modifiedUrl = replacer.replaceDomainName(it).toString()
+                            copyToClipboard(modifiedUrl)
+                            Toast.makeText(this, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Invalid URL", Toast.LENGTH_SHORT).show()
+                        }
+                        finish()
                     }
-                    finish()
-                }
             }
         }
     }
