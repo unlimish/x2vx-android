@@ -1,17 +1,26 @@
 package sh.unlimi.x2vx
 
+import java.net.URI
+
 class UrlReplacer {
     fun replaceDomainName(url: String): String {
-        var modifiedUrl = url
-        if (url.startsWith("https://x.com")) {
-            modifiedUrl = url.replaceFirst("https://x.com", "https://vxtwitter.com")
+        return this.replaceDomainName(URI(url)).toString()
+    }
+
+    fun replaceDomainName(url: URI): URI {
+        if (url.host != "x.com") {
+            return url
         }
 
-        // Remove everything from "?" onwards
-        val indexOfQuery = modifiedUrl.indexOf("?")
-        if (indexOfQuery != -1) {
-            modifiedUrl = modifiedUrl.substring(0, indexOfQuery)
-        }
-        return modifiedUrl
+        return URI(
+            url.scheme,
+            url.userInfo,
+            "vxtwitter.com",
+            url.port,
+            url.path,
+            // removes query and fragment
+            null,
+            null,
+        )
     }
 }
