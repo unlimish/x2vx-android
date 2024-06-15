@@ -21,11 +21,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           path: '**/*.apk'
-      - uses: yumemi-inc/comment-pull-request@v1
-        if: cancelled() != true
-        with:
-          comment: 'CI passed.'
-          comment-if-failure: 'CI failed.'
 
   release:
     needs: check
