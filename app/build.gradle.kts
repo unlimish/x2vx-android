@@ -13,8 +13,8 @@ android {
     compileSdk = 34
     val applicationName = "sh.unlimi.x2vx"
     val versionMajor = 1
-    val versionMinor = 0
-    val versionPatch = 2
+    val versionMinor = 1
+    val versionPatch = 0
 
     defaultConfig {
         applicationId = "sh.unlimi.x2vx"
@@ -63,6 +63,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    dependenciesInfo{
+        includeInApk = false
+        includeInBundle = false
     }
 }
 
