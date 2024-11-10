@@ -3,8 +3,15 @@ package sh.unlimi.x2vx
 import java.net.URI
 
 class UrlReplacer {
+    private val domainMappings = mapOf(
+        "x.com" to "vxtwitter.com",
+        "tiktok.com" to "tnktok.com",
+        "bsky.app" to "boobsky.app",
+        "reddit.com" to "rpddit.com"
+    )
+
     fun supports(url: URI): Boolean {
-        return url.host == "x.com"
+        return url.host in domainMappings
     }
 
     fun replaceDomainName(url: URI): URI {
@@ -15,12 +22,11 @@ class UrlReplacer {
         return URI(
             url.scheme,
             url.userInfo,
-            "vxtwitter.com",
+            domainMappings[url.host],
             url.port,
             url.path,
-            // removes query and fragment
             null,
-            null,
+            null
         )
     }
 }
