@@ -9,6 +9,7 @@ class Settings(context: Context) {
         private const val KEY_PROVIDER = "provider"
         private const val KEY_TRANSLATE_ENABLED = "translate_enabled"
         private const val KEY_TRANSLATE_LANGUAGE = "translate_language"
+        private const val KEY_SHARE_AFTER_CONVERT = "share_after_convert"
         const val DEFAULT_LANGUAGE = "en"
     }
 
@@ -26,6 +27,11 @@ class Settings(context: Context) {
     var translateLanguage: String
         get() = prefs.getString(KEY_TRANSLATE_LANGUAGE, null) ?: DEFAULT_LANGUAGE
         set(value) = prefs.edit().putString(KEY_TRANSLATE_LANGUAGE, value).apply()
+
+    /** Whether to open the share sheet with the converted link (in addition to copying it). */
+    var shareAfterConvert: Boolean
+        get() = prefs.getBoolean(KEY_SHARE_AFTER_CONVERT, false)
+        set(value) = prefs.edit().putBoolean(KEY_SHARE_AFTER_CONVERT, value).apply()
 
     fun createReplacer(): UrlReplacer = UrlReplacer(
         provider = provider,

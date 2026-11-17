@@ -7,6 +7,9 @@
     <string name="translate_switch">Translate posts</string>
     <string name="translate_unsupported">Translation is only available with fxtwitter.com and fixupx.com.</string>
     <string name="translate_language">Target language</string>
+    <string name="after_convert_title">After converting</string>
+    <string name="share_switch">Open the share menu</string>
+    <string name="share_note">The link is always copied to the clipboard. When on, the share menu also opens so you can send it straight to another app.</string>
     <string name="preview_title">Preview</string>
     <string name="toast_copied">URL copied to clipboard</string>
     <string name="toast_invalid_url">Invalid URL</string>

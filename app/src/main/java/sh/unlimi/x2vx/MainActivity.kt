@@ -3,6 +3,7 @@ package sh.unlimi.x2vx
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -60,8 +61,12 @@ class MainActivity : AppCompatActivity() {
         val uri = urlString?.let { UrlReplacer.findUrl(it) }
         val replacer = settings.createReplacer()
         if (uri != null && replacer.supports(uri)) {
-            copyToClipboard(replacer.replaceDomainName(uri).toString())
+            val converted = replacer.replaceDomainName(uri).toString()
+            copyToClipboard(converted)
             Toast.makeText(this, R.string.toast_copied, Toast.LENGTH_SHORT).show()
+            if (settings.shareAfterConvert) {
+                shareText(converted)
+            }
         } else {
             Toast.makeText(this, R.string.toast_invalid_url, Toast.LENGTH_SHORT).show()
         }
@@ -76,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         val languageSpinner = findViewById<Spinner>(R.id.language_spinner)
         val translateNote = findViewById<TextView>(R.id.translate_note)
         val preview = findViewById<TextView>(R.id.preview)
+        val shareSwitch = findViewById<SwitchCompat>(R.id.share_switch)
 
         // Provider radio buttons
         val buttonIds = mutableMapOf<Int, Provider>()
@@ -100,6 +106,10 @@ class MainActivity : AppCompatActivity() {
         val savedLanguage = settings.translateLanguage
         languageSpinner.setSelection(LANGUAGES.indexOf(savedLanguage).coerceAtLeast(0))
         translateSwitch.isChecked = settings.translateEnabled
+        shareSwitch.isChecked = settings.shareAfterConvert
+        shareSwitch.setOnCheckedChangeListener { _, isChecked ->
+            settings.shareAfterConvert = isChecked
+        }
 
         fun refresh() {
             val supports = settings.provider.supportsTranslation
@@ -127,6 +137,18 @@ class MainActivity : AppCompatActivity() {
         }
 
         refresh()
+    }
+
+    private fun shareText(text: String) {
+        val send = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, text)
+        }
+        val chooser = Intent.createChooser(send, null).apply {
+            // Don't offer x2vx itself as a target.
+            putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, arrayOf(ComponentName(this@MainActivity, MainActivity::class.java)))
+        }
+        startActivity(chooser)
     }
 
     private fun copyToClipboard(text: String) {
