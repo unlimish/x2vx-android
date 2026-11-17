@@ -1,1 +1,1 @@
-Automatically modify and copy URLs from x.com to vxtwitter.com.
+Convert X, TikTok, Bluesky and Reddit links to embed-friendly ones and copy them
