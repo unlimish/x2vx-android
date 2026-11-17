@@ -8,32 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          set -x
-          B=https://dlstats.izzyondroid.org/iodstats
-          curl -fsSL "$B/README.md" | head -120 || true
-          curl -fsSL "$B/" | head -60 || true
-          curl -fsSL "$B/index.json" -o index.json && ls -l index.json && head -c 1500 index.json; echo
-          python3 - <<'PY'
-          import json
-          d = json.load(open("index.json"))
-          print(type(d), len(d))
-          if isinstance(d, dict):
-              ks = sorted(d)
-              print("first keys", ks[:3], "last keys", ks[-3:])
-              print("sample", {k: d[k] for k in ks[-2:]})
-          PY
-          F=$(python3 -c 'import json;d=json.load(open("index.json"));k=sorted(d)[-10];v=d[k];print(v[0] if isinstance(v,list) else v)')
+          B=https://dlstats.izzyondroid.org/iodstats/apk_downloads
+          curl -fsSL "$B/" | sed -n '1,40p'
+          for y in 2024 2025 2026; do echo "== $y"; curl -fsSL "$B/$y/" | grep -o 'href="[^"]*"' | head -80 | tr '\n' ' '; echo; done
+          F=$(curl -fsSL "$B/2026/" | grep -o 'href="[^"]*\.json"' | sed 's/href="//;s/"//' | tail -n 2 | head -n 1)
           echo "file: $F"
-          curl -fsSL "$B/$F" -o week.json || curl -fsSL "$F" -o week.json
-          ls -l week.json
+          curl -fsSL "$B/2026/$F" -o week.json; ls -l week.json; head -c 600 week.json; echo
           python3 - <<'PY'
           import json
           d = json.load(open("week.json"))
-          ks = sorted(d)
-          print("days", ks)
-          day = d[ks[0]]
-          print("apps in day", len(day))
-          print("x2vx", {k: d[k].get("sh.unlimi.x2vx") for k in ks})
-          print("sample app", list(day.items())[:2])
+          print(type(d))
+          ks = sorted(d) if isinstance(d, dict) else []
+          print("top keys", ks[:10])
+          if ks:
+              v = d[ks[0]]
+              print("type of value", type(v), (list(v)[:5] if isinstance(v, dict) else v))
+              for k in ks:
+                  x = d[k]
+                  if isinstance(x, dict) and "sh.unlimi.x2vx" in x:
+                      print("x2vx", k, x["sh.unlimi.x2vx"])
           PY
-          curl -fsSL "$B/monthly/" | head -30 || true
+          curl -fsSL "$B/2026/" | grep -v 'href="\.\./"' | tail -5
