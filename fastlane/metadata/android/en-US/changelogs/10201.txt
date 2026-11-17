@@ -1,8 +1,8 @@
-IMPORTANT: the signing key has changed. If you have 1.1.0 or earlier installed, uninstall it first, then install this version.
+IMPORTANT: the signing key has changed. If you have 1.1.0 or earlier, uninstall it first, then install this version.
 
 - New settings screen (open x2vx from the app drawer)
-- Choose the proxy for x.com links: vxtwitter.com, fixvx.com, fxtwitter.com, fixupx.com
+- Choose the x.com proxy: vxtwitter.com, fixvx.com, fxtwitter.com, fixupx.com
 - Translate posts with fxtwitter.com / fixupx.com
-- Support TikTok (tnktok.com), Bluesky (fxbsky.app) and Reddit (vxreddit.com) links
+- Support TikTok (tnktok.com), Bluesky (fxbsky.app) and Reddit (vxreddit.com)
 - Option to open the share menu after converting
-- Fix the app icon not showing in the app drawer
+- Fix the app icon missing from the app drawer

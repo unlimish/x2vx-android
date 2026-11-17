@@ -1,0 +1,35 @@
+<strong>x2vx</strong> は、X (x.com)・TikTok・Bluesky・Reddit のリンクを埋め込み向けのプロキシのリンクに変換し、トラッキング用のパラメータを取り除いてクリップボードにコピーするアプリです。
+
+<strong><font color="#339933">[機能]</font></strong>
+
+* Android の共有メニューから、どのアプリのリンクでも変換できます。
+* <code>?s=46</code> や <code>?utm_source=...</code> などのパラメータを取り除きます。
+* x.com のリンクの変換先を選べます: vxtwitter.com、fixvx.com、fxtwitter.com、fixupx.com
+* fxtwitter.com / fixupx.com では、翻訳先の言語を選んでポストを翻訳できます。
+* TikTok は tnktok.com、Bluesky は fxbsky.app、Reddit は vxreddit.com に変換します。
+* 変換後に共有メニューを開いて、そのまま別のアプリに送ることもできます（設定でオン）。
+* 軽量: バックグラウンドで動かず、ネットワークにも接続しません。
+
+<strong><font color="#339933">[使い方]</font></strong>
+
+1. X・TikTok・Bluesky・Reddit で、ポストの「共有」をタップします。
+2. x2vx を選びます。
+3. 変換されたリンクがクリップボードにコピーされるので、好きな場所に貼り付けます。
+
+設定を変えるには、アプリドロワーから x2vx を開いてください。
+
+<strong><font color="#339933">[注意]</font></strong>
+
+* x2vx はクリップボードを監視しません。Android ではアプリがバックグラウンドでクリップボードを読むことも、別のアプリへ直接共有されたリンクを書き換えることもできないためです。必ず一度 x2vx に共有してください。
+
+<strong><font color="#339933">[ソースコード]</font></strong>
+
+GitHub
+https://github.com/unlimish/x2vx-android
+
+<strong><font color="#339933">[不具合報告・要望]</font></strong>
+
+GitHub Issue
+https://github.com/unlimish/x2vx-android/issues
+
+不具合の報告や機能の要望などはこちらにお願いします。
