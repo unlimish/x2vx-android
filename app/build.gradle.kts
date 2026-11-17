@@ -12,16 +12,15 @@ android {
     namespace = "sh.unlimi.x2vx"
     compileSdk = 34
     val applicationName = "sh.unlimi.x2vx"
-    val versionMajor = 1
-    val versionMinor = 2
-    val versionPatch = 0
 
     defaultConfig {
         applicationId = "sh.unlimi.x2vx"
         minSdk = 29
         targetSdk = 34
-        versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
-        versionName = "${versionMajor}.${versionMinor}.${versionPatch}"
+        // Keep these as literals so F-Droid's update checker can read them.
+        // versionCode = major * 10000 + minor * 100 + patch
+        versionCode = 10200
+        versionName = "1.2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
