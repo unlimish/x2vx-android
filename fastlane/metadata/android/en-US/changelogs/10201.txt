@@ -1,2 +1,8 @@
-- Updated app description, title and README for the new features in 1.2.0
-- Removed old build outputs from the source tree
+IMPORTANT: the signing key has changed. If you have 1.1.0 or earlier installed, uninstall it first, then install this version.
+
+- New settings screen (open x2vx from the app drawer)
+- Choose the proxy for x.com links: vxtwitter.com, fixvx.com, fxtwitter.com, fixupx.com
+- Translate posts with fxtwitter.com / fixupx.com
+- Support TikTok (tnktok.com), Bluesky (fxbsky.app) and Reddit (vxreddit.com) links
+- Option to open the share menu after converting
+- Fix the app icon not showing in the app drawer
