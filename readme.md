@@ -39,6 +39,7 @@ x2vx doesn't run in the background or watch the clipboard: Android doesn't let a
 
 - [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx) `https://apt.izzysoft.de/fdroid/repo`
 
+[![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/sh.unlimi.x2vx&style=for-the-badge)](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx)
 ![GitHub Release](https://img.shields.io/github/v/release/unlimish/x2vx-android?style=for-the-badge)
 ![MIT](https://img.shields.io/github/license/unlimish/x2vx-android.svg?style=for-the-badge)
 
