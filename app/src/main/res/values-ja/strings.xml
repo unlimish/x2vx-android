@@ -1,6 +1,7 @@
 <resources>
-    <string name="settings_description">x.com のリンクを x2vx に共有すると、下で選択したプロキシサービスのリンクに変換してクリップボードにコピーします。</string>
+    <string name="settings_description">X (x.com)・TikTok・Bluesky・Reddit のリンクを x2vx に共有すると、トラッキング用パラメータを除いた埋め込み向けのリンクに変換してクリップボードにコピーします。</string>
     <string name="provider_title">プロキシプロバイダー</string>
+    <string name="provider_note">x.com のリンクに使われます。TikTok・Bluesky・Reddit のリンクはそれぞれ tnktok.com・fxbsky.app・vxreddit.com に変換されます。</string>
     <string name="translate_title">翻訳</string>
     <string name="translate_switch">ポストを翻訳する</string>
     <string name="translate_unsupported">翻訳は fxtwitter.com と fixupx.com でのみ利用できます。</string>

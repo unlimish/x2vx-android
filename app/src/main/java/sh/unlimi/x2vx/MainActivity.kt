@@ -18,7 +18,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import java.net.URI
-import java.net.URISyntaxException
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -58,11 +57,7 @@ class MainActivity : AppCompatActivity() {
     private fun handleShare(intent: Intent) {
         val urlString = intent.getStringExtra(Intent.EXTRA_TEXT)?.trim()
         Log.d(TAG, "Received ACTION_SEND with text: $urlString")
-        val uri = try {
-            urlString?.let { URI(it) }
-        } catch (e: URISyntaxException) {
-            null
-        }
+        val uri = urlString?.let { UrlReplacer.findUrl(it) }
         val replacer = settings.createReplacer()
         if (uri != null && replacer.supports(uri)) {
             copyToClipboard(replacer.replaceDomainName(uri).toString())
