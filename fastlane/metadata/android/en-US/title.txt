@@ -1,1 +1,1 @@
-x2vx: Twitter URL converter
+x2vx: Social media link converter
