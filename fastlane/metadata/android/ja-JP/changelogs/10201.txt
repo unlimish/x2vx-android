@@ -1,0 +1,8 @@
+重要: 署名鍵が変わりました。1.1.0 以前を使っている場合は、先にアンインストールしてからこのバージョンをインストールしてください。
+
+- 設定画面を追加（アプリドロワーから x2vx を開く）
+- x.com のリンクの変換先を選択可能に: vxtwitter.com、fixvx.com、fxtwitter.com、fixupx.com
+- fxtwitter.com / fixupx.com でポストの翻訳に対応
+- TikTok (tnktok.com)・Bluesky (fxbsky.app)・Reddit (vxreddit.com) のリンクに対応
+- 変換後に共有メニューを開くオプションを追加
+- アプリドロワーにアイコンが表示されない問題を修正
