@@ -1,0 +1,39 @@
+name: Download stats probe (temporary)
+on:
+  push:
+    branches: [claude/bold-cannon-chq6hz]
+    paths: [.github/workflows/download-stats-probe.yml]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set -x
+          B=https://dlstats.izzyondroid.org/iodstats
+          curl -fsSL "$B/README.md" | head -120 || true
+          curl -fsSL "$B/" | head -60 || true
+          curl -fsSL "$B/index.json" -o index.json && ls -l index.json && head -c 1500 index.json; echo
+          python3 - <<'PY'
+          import json
+          d = json.load(open("index.json"))
+          print(type(d), len(d))
+          if isinstance(d, dict):
+              ks = sorted(d)
+              print("first keys", ks[:3], "last keys", ks[-3:])
+              print("sample", {k: d[k] for k in ks[-2:]})
+          PY
+          F=$(python3 -c 'import json;d=json.load(open("index.json"));k=sorted(d)[-10];v=d[k];print(v[0] if isinstance(v,list) else v)')
+          echo "file: $F"
+          curl -fsSL "$B/$F" -o week.json || curl -fsSL "$F" -o week.json
+          ls -l week.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open("week.json"))
+          ks = sorted(d)
+          print("days", ks)
+          day = d[ks[0]]
+          print("apps in day", len(day))
+          print("x2vx", {k: d[k].get("sh.unlimi.x2vx") for k in ks})
+          print("sample app", list(day.items())[:2])
+          PY
+          curl -fsSL "$B/monthly/" | head -30 || true
