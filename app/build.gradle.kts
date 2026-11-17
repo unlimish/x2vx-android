@@ -19,8 +19,8 @@ android {
         targetSdk = 34
         // Keep these as literals so F-Droid's update checker can read them.
         // versionCode = major * 10000 + minor * 100 + patch
-        versionCode = 10200
-        versionName = "1.2.0"
+        versionCode = 10201
+        versionName = "1.2.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,8 +47,25 @@ android {
         }
     }
 
+    // Release signing is configured only when these environment variables are set
+    // (by CI from repository secrets). Local and F-Droid builds stay unsigned.
+    val signingKeystore: String? = System.getenv("SIGNING_KEYSTORE_FILE")
+    signingConfigs {
+        if (signingKeystore != null) {
+            create("release") {
+                storeFile = file(signingKeystore)
+                storePassword = System.getenv("SIGNING_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (signingKeystore != null) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

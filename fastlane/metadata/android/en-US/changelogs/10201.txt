@@ -1,0 +1,2 @@
+- Updated app description, title and README for the new features in 1.2.0
+- Removed old build outputs from the source tree
