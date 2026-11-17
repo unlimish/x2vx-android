@@ -6,6 +6,9 @@
     <string name="translate_switch">ポストを翻訳する</string>
     <string name="translate_unsupported">翻訳は fxtwitter.com と fixupx.com でのみ利用できます。</string>
     <string name="translate_language">翻訳先の言語</string>
+    <string name="after_convert_title">変換後の動作</string>
+    <string name="share_switch">共有メニューを開く</string>
+    <string name="share_note">リンクは常にクリップボードにコピーされます。オンにすると共有メニューも開き、そのまま別のアプリに送れます。</string>
     <string name="preview_title">プレビュー</string>
     <string name="toast_copied">URL をクリップボードにコピーしました</string>
     <string name="toast_invalid_url">無効な URL です</string>
