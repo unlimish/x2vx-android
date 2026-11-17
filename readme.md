@@ -45,7 +45,10 @@ x2vx doesn't run in the background or watch the clipboard: Android doesn't let a
 
 [![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/sh.unlimi.x2vx&style=for-the-badge)](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx)
 ![GitHub Release](https://img.shields.io/github/v/release/unlimish/x2vx-android?style=for-the-badge)
+[![Downloads](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/unlimish/x2vx-android/stats/downloads.json&style=for-the-badge)](https://github.com/unlimish/x2vx-android/blob/stats/history.csv)
 ![MIT](https://img.shields.io/github/license/unlimish/x2vx-android.svg?style=for-the-badge)
+
+The downloads badge adds up GitHub Releases (including Obtainium) and IzzyOnDroid (counted since December 2024). It's updated daily; see the [history](https://github.com/unlimish/x2vx-android/blob/stats/history.csv) for the numbers per source.
 
 ## for iOS
 

@@ -9,9 +9,6 @@ on:
   schedule:
     - cron: '17 3 * * *'
   workflow_dispatch: {}
-  push:
-    branches: [claude/bold-cannon-chq6hz]
-    paths: [.github/workflows/download-stats.yml, .github/scripts/download_stats.py]
 
 concurrency:
   group: download-stats
@@ -31,7 +28,7 @@ jobs:
             git fetch --depth=1 origin stats
             git worktree add stats-data FETCH_HEAD
           else
-            mkdir stats-data
+            git worktree add --orphan -b stats stats-data
           fi
 
       - name: Collect download counts
@@ -47,7 +44,6 @@ jobs:
         if: github.ref_name == github.event.repository.default_branch
         working-directory: stats-data
         run: |
-          [ -d .git ] || [ -f .git ] || { git init -q -b stats && git remote add origin "$(git -C .. remote get-url origin)"; }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
