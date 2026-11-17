@@ -33,12 +33,12 @@ x2vx doesn't run in the background or watch the clipboard: Android doesn't let a
 [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
     alt="Get it on IzzyOnDroid"
     height="80">](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx)
-[<img src="https://github.com/unlimish/x2vx-android/assets/14168376/c4f11a6e-730b-4c4d-b676-a11a1ed42831"
-    alt="Get it on GitHub"
-    height="80">](https://github.com/unlimish/x2vx-android/releases/)
 [<img src="https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png"
     alt="Get it on Obtainium"
     height="80">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/unlimish/x2vx-android)
+[<img src="https://github.com/unlimish/x2vx-android/assets/14168376/c4f11a6e-730b-4c4d-b676-a11a1ed42831"
+    alt="Get it on GitHub"
+    height="80">](https://github.com/unlimish/x2vx-android/releases/)
 
 - [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx) `https://apt.izzysoft.de/fdroid/repo`
 - [Obtainium](https://github.com/ImranR98/Obtainium): installs and updates the app straight from GitHub Releases. Add `https://github.com/unlimish/x2vx-android` as the app source, or tap the badge above on your phone.
