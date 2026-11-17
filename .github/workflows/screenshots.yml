@@ -1,14 +1,9 @@
 name: Screenshots
 
 # Takes store screenshots on an emulator and commits them to the branch.
-# Run it manually from the Actions tab (on a branch, not master) when the UI changes.
+# Run it manually from the Actions tab, on a branch (not master), when the UI changes.
 on:
   workflow_dispatch: {}
-  push:
-    branches-ignore: [master]
-    paths:
-      - .github/workflows/screenshots.yml
-      - .github/scripts/screenshots.sh
 
 jobs:
   screenshots:

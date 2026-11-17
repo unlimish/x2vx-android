@@ -21,6 +21,10 @@ demo network -e wifi show -e level 4
 demo network -e mobile hide
 demo notifications -e visible false
 
+# Hide the "copied to clipboard" pop-up (Android 13+), which would cover
+# the share menu in screenshot 2.
+adb shell device_config put systemui clipboard_overlay_enabled false || true
+
 set_locale() {
   adb shell cmd locale set-app-locales "$PKG" --locales "$1"
 }
