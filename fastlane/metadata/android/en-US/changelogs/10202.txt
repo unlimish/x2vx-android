@@ -1,0 +1,2 @@
+- Much smaller app: the APK is now optimized with R8
+- Japanese app description and screenshots for app stores

@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# Provider names are stored in SharedPreferences (Provider.name), so they
+# must stay the same across releases.
+-keep enum sh.unlimi.x2vx.Provider { *; }
