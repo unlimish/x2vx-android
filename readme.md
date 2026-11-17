@@ -27,21 +27,28 @@ x2vx doesn't run in the background or watch the clipboard: Android doesn't let a
 
 ## Available on
 
-> ⚠️ While you can download the APKs from GitHub directly, you should preferably use an F-Droid client so the app stays up-to-date on your device.
-> <br>APKをGitHubで直接ダウンロードできますが、デバイス上のアプリを最新の状態に保つために、F-Droid クライアントからダウンロードすることをお勧めします。
+> ⚠️ While you can download the APKs from GitHub directly, you should preferably use an F-Droid client or Obtainium so the app stays up-to-date on your device.
+> <br>APKをGitHubで直接ダウンロードできますが、デバイス上のアプリを最新の状態に保つために、F-Droid クライアントまたは Obtainium からインストールすることをお勧めします。
 
 [<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
     alt="Get it on IzzyOnDroid"
     height="80">](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx)
+[<img src="https://raw.githubusercontent.com/ImranR98/Obtainium/main/assets/graphics/badge_obtainium.png"
+    alt="Get it on Obtainium"
+    height="80">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/unlimish/x2vx-android)
 [<img src="https://github.com/unlimish/x2vx-android/assets/14168376/c4f11a6e-730b-4c4d-b676-a11a1ed42831"
     alt="Get it on GitHub"
     height="80">](https://github.com/unlimish/x2vx-android/releases/)
 
 - [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx) `https://apt.izzysoft.de/fdroid/repo`
+- [Obtainium](https://github.com/ImranR98/Obtainium): installs and updates the app straight from GitHub Releases. Add `https://github.com/unlimish/x2vx-android` as the app source, or tap the badge above on your phone.
 
 [![IzzyOnDroid](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/sh.unlimi.x2vx&style=for-the-badge)](https://apt.izzysoft.de/fdroid/index/apk/sh.unlimi.x2vx)
 ![GitHub Release](https://img.shields.io/github/v/release/unlimish/x2vx-android?style=for-the-badge)
+[![Downloads](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/unlimish/x2vx-android/stats/downloads.json&style=for-the-badge)](https://github.com/unlimish/x2vx-android/blob/stats/history.csv)
 ![MIT](https://img.shields.io/github/license/unlimish/x2vx-android.svg?style=for-the-badge)
+
+The downloads badge adds up GitHub Releases (including Obtainium) and IzzyOnDroid (counted since December 2024). It's updated daily; see the [history](https://github.com/unlimish/x2vx-android/blob/stats/history.csv) for the numbers per source.
 
 ## for iOS
 
