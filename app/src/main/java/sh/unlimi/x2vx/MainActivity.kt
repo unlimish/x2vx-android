@@ -7,50 +7,131 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import java.net.URI
+import java.net.URISyntaxException
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "MainActivity"
+        private const val SAMPLE_URL = "https://x.com/unlimish/status/1773686985728962615"
+
+        /** Languages offered for translation (ISO 639-1 codes accepted by FxEmbed). */
+        private val LANGUAGES = listOf(
+            "en", "ja", "ko", "zh", "es", "fr", "de", "it", "pt", "ru",
+            "ar", "hi", "id", "th", "vi", "tr", "nl", "pl", "uk", "sv",
+        )
     }
+
+    private lateinit var settings: Settings
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        settings = Settings(this)
         Log.d(TAG, "onCreate called")
-        handleIntent(intent)
+        if (intent.action == Intent.ACTION_SEND) {
+            handleShare(intent)
+        } else {
+            showSettings()
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         Log.d(TAG, "onNewIntent called")
-        handleIntent(intent)
+        if (intent.action == Intent.ACTION_SEND) {
+            handleShare(intent)
+        }
     }
 
-    private fun handleIntent(intent: Intent) {
-        Log.d(TAG, "handleIntent called with action: ${intent.action}")
-        when (intent.action) {
-            Intent.ACTION_SEND -> {
-                val urlString = intent.getStringExtra(Intent.EXTRA_TEXT)
-                Log.d(TAG, "Received ACTION_SEND with text: $urlString")
-                urlString
-                    ?.let { URI(it) }
-                    ?.let {
-                        val replacer = UrlReplacer()
-                        if (replacer.supports(it)) {
-                            val modifiedUrl = replacer.replaceDomainName(it).toString()
-                            copyToClipboard(modifiedUrl)
-                            Toast.makeText(this, "URL copied to clipboard", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(this, "Invalid URL", Toast.LENGTH_SHORT).show()
-                        }
-                        finish()
-                    }
-            }
+    private fun handleShare(intent: Intent) {
+        val urlString = intent.getStringExtra(Intent.EXTRA_TEXT)?.trim()
+        Log.d(TAG, "Received ACTION_SEND with text: $urlString")
+        val uri = try {
+            urlString?.let { URI(it) }
+        } catch (e: URISyntaxException) {
+            null
         }
+        val replacer = settings.createReplacer()
+        if (uri != null && replacer.supports(uri)) {
+            copyToClipboard(replacer.replaceDomainName(uri).toString())
+            Toast.makeText(this, R.string.toast_copied, Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, R.string.toast_invalid_url, Toast.LENGTH_SHORT).show()
+        }
+        finish()
+    }
+
+    private fun showSettings() {
+        setContentView(R.layout.activity_main)
+
+        val providerGroup = findViewById<RadioGroup>(R.id.provider_group)
+        val translateSwitch = findViewById<SwitchCompat>(R.id.translate_switch)
+        val languageSpinner = findViewById<Spinner>(R.id.language_spinner)
+        val translateNote = findViewById<TextView>(R.id.translate_note)
+        val preview = findViewById<TextView>(R.id.preview)
+
+        // Provider radio buttons
+        val buttonIds = mutableMapOf<Int, Provider>()
+        Provider.entries.forEach { provider ->
+            val button = RadioButton(this).apply {
+                id = View.generateViewId()
+                text = provider.host
+                textSize = 16f
+            }
+            buttonIds[button.id] = provider
+            providerGroup.addView(button)
+            if (provider == settings.provider) button.isChecked = true
+        }
+
+        // Language spinner
+        val labels = LANGUAGES.map { code ->
+            val name = Locale.forLanguageTag(code).getDisplayLanguage(Locale.forLanguageTag(code))
+            "${name.replaceFirstChar { it.titlecase(Locale.getDefault()) }} ($code)"
+        }
+        languageSpinner.adapter =
+            ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, labels)
+        val savedLanguage = settings.translateLanguage
+        languageSpinner.setSelection(LANGUAGES.indexOf(savedLanguage).coerceAtLeast(0))
+        translateSwitch.isChecked = settings.translateEnabled
+
+        fun refresh() {
+            val supports = settings.provider.supportsTranslation
+            translateSwitch.isEnabled = supports
+            languageSpinner.isEnabled = supports && settings.translateEnabled
+            translateNote.visibility = if (supports) View.GONE else View.VISIBLE
+            preview.text = settings.createReplacer().replaceDomainName(URI(SAMPLE_URL)).toString()
+        }
+
+        providerGroup.setOnCheckedChangeListener { _, checkedId ->
+            buttonIds[checkedId]?.let { settings.provider = it }
+            refresh()
+        }
+        translateSwitch.setOnCheckedChangeListener { _, isChecked ->
+            settings.translateEnabled = isChecked
+            refresh()
+        }
+        languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                settings.translateLanguage = LANGUAGES[position]
+                refresh()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        refresh()
     }
 
     private fun copyToClipboard(text: String) {

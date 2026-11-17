@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">x2vx</string>
+    <string name="settings_description">Share an x.com link to x2vx to copy it as a link to the proxy service selected below.</string>
+    <string name="provider_title">Proxy provider</string>
+    <string name="translate_title">Translation</string>
+    <string name="translate_switch">Translate posts</string>
+    <string name="translate_unsupported">Translation is only available with fxtwitter.com and fixupx.com.</string>
+    <string name="translate_language">Target language</string>
+    <string name="preview_title">Preview</string>
+    <string name="toast_copied">URL copied to clipboard</string>
+    <string name="toast_invalid_url">Invalid URL</string>
 </resources>

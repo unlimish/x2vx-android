@@ -1,0 +1,11 @@
+<resources>
+    <string name="settings_description">x.com のリンクを x2vx に共有すると、下で選択したプロキシサービスのリンクに変換してクリップボードにコピーします。</string>
+    <string name="provider_title">プロキシプロバイダー</string>
+    <string name="translate_title">翻訳</string>
+    <string name="translate_switch">ポストを翻訳する</string>
+    <string name="translate_unsupported">翻訳は fxtwitter.com と fixupx.com でのみ利用できます。</string>
+    <string name="translate_language">翻訳先の言語</string>
+    <string name="preview_title">プレビュー</string>
+    <string name="toast_copied">URL をクリップボードにコピーしました</string>
+    <string name="toast_invalid_url">無効な URL です</string>
+</resources>
