@@ -4,6 +4,8 @@ Converting URL starts from `x.com` to `vxtwitter.com` via Sharing Intent to copy
 Open x2vx from the app drawer to choose the proxy provider (`vxtwitter.com`, `fixvx.com`, `fxtwitter.com`, `fixupx.com`).
 With `fxtwitter.com` / `fixupx.com` you can also turn on post translation and pick the target language (e.g. `.../status/123/ja`).
 
+TikTok, Bluesky and Reddit links are also supported and converted to `tnktok.com`, `fxbsky.app` and `vxreddit.com`.
+
 ![x2vx-android](https://github.com/unlimish/x2vx-android/assets/14168376/43e35eaa-3657-41a2-9499-0ada2e9b633e)
 
 ## Available on

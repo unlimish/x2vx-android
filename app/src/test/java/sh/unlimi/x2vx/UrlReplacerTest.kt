@@ -102,4 +102,52 @@ class UrlReplacerTest {
             UrlReplacer(Provider.FIXUPX, "../x").replaceDomainName(status),
         )
     }
+
+    @Test
+    fun testOtherPlatforms() {
+        val replacer = UrlReplacer()
+
+        assertEquals(
+            URI("https://tnktok.com/@user/video/7300000000000000000"),
+            replacer.replaceDomainName(URI("https://www.tiktok.com/@user/video/7300000000000000000?is_from_webapp=1")),
+        )
+        assertEquals(
+            URI("https://vm.tnktok.com/ZMabcdEF/"),
+            replacer.replaceDomainName(URI("https://vm.tiktok.com/ZMabcdEF/")),
+        )
+        assertEquals(
+            URI("https://fxbsky.app/profile/user.bsky.social/post/3kabc"),
+            replacer.replaceDomainName(URI("https://bsky.app/profile/user.bsky.social/post/3kabc")),
+        )
+        assertEquals(
+            URI("https://vxreddit.com/r/android/comments/abc123/title/"),
+            replacer.replaceDomainName(URI("https://www.reddit.com/r/android/comments/abc123/title/?utm_source=share")),
+        )
+        assertEquals(
+            URI("https://vxreddit.com/r/android/comments/abc123/title/"),
+            replacer.replaceDomainName(URI("https://old.reddit.com/r/android/comments/abc123/title/")),
+        )
+
+        // the x.com provider and translation settings don't affect other platforms
+        assertEquals(
+            URI("https://fxbsky.app/profile/user.bsky.social/post/3kabc"),
+            UrlReplacer(Provider.FIXUPX, "ja").replaceDomainName(URI("https://bsky.app/profile/user.bsky.social/post/3kabc")),
+        )
+
+        assertFalse(replacer.supports(URI("https://tiktok.com.example.com/@user")))
+        assertFalse(replacer.supports(URI("https://example.com/")))
+    }
+
+    @Test
+    fun testFindUrl() {
+        assertEquals(
+            URI("https://vm.tiktok.com/ZMabcdEF/"),
+            UrlReplacer.findUrl("Check out this video! https://vm.tiktok.com/ZMabcdEF/ #fyp"),
+        )
+        assertEquals(
+            URI("https://x.com/unlimish/status/1773686985728962615?s=46"),
+            UrlReplacer.findUrl("https://x.com/unlimish/status/1773686985728962615?s=46"),
+        )
+        assertNull(UrlReplacer.findUrl("no links here"))
+    }
 }
